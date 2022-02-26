@@ -37,7 +37,7 @@ watch(
   route,
   () => {
     const arr = route.matched[1]?.path.split('/').slice(2)
-    breadcrumbs.value = [...arr]
+    breadcrumbs.value = arr
   },
   {
     deep: true,
@@ -49,6 +49,7 @@ watch(
 <style lang="scss" scoped>
 .nav-header {
   display: flex;
+  align-items: center;
   width: 100%;
   .fold-menu {
     font-size: 30px;
@@ -63,7 +64,7 @@ watch(
     align-items: center;
 
     &-right {
-      width: 140px;
+      width: 180px;
       display: flex;
       justify-content: space-between;
       align-items: center;

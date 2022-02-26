@@ -13,11 +13,11 @@ const loginModule: Module<ILoginState, IRootState> = {
   namespaced: true,
   state() {
     return {
-      token: '',
+      token: localCache.getCache('token') || '',
       userMenus: [
         {
           id: 38,
-          name: '系统总览',
+          name: 'analysis',
           type: 1,
           url: '/main/analysis',
           icon: 'Monitor',
@@ -28,7 +28,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 39,
               url: '/main/analysis/overview',
-              name: '核心技术',
+              name: 'overview',
               sort: 106,
               type: 2,
               children: null,
@@ -39,7 +39,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 40,
               url: '/main/analysis/dashboard',
-              name: '商品统计',
+              name: 'dashboard',
               sort: 107,
               type: 2,
               children: null,
@@ -51,7 +51,7 @@ const loginModule: Module<ILoginState, IRootState> = {
         },
         {
           id: 1,
-          name: '系统管理',
+          name: 'system',
           type: 1,
           url: '/main/system',
           icon: 'Setting',
@@ -62,7 +62,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 2,
               url: '/main/system/user',
-              name: '用户管理',
+              name: 'user',
               sort: 100,
               type: 2,
               children: [
@@ -118,7 +118,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 3,
               url: '/main/system/department',
-              name: '部门管理',
+              name: 'department',
               sort: 101,
               type: 2,
               children: [
@@ -174,7 +174,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 4,
               url: '/main/system/menu',
-              name: '菜单管理',
+              name: 'menu',
               sort: 103,
               type: 2,
               children: [
@@ -230,7 +230,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 25,
               url: '/main/system/role',
-              name: '角色管理',
+              name: 'role',
               sort: 102,
               type: 2,
               children: [
@@ -287,7 +287,7 @@ const loginModule: Module<ILoginState, IRootState> = {
         },
         {
           id: 9,
-          name: '商品中心',
+          name: 'product',
           type: 1,
           url: '/main/product',
           icon: 'Goods',
@@ -298,7 +298,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 15,
               url: '/main/product/category',
-              name: '商品类别',
+              name: 'category',
               sort: 104,
               type: 2,
               children: [
@@ -354,7 +354,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 16,
               url: '/main/product/goods',
-              name: '商品信息',
+              name: 'goods',
               sort: 105,
               type: 2,
               children: [
@@ -422,7 +422,7 @@ const loginModule: Module<ILoginState, IRootState> = {
         },
         {
           id: 41,
-          name: '随便聊聊',
+          name: 'story',
           type: 1,
           url: '/main/story',
           icon: 'ChatLineRound',
@@ -433,7 +433,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 42,
               url: '/main/story/chat',
-              name: '你的故事',
+              name: 'chat',
               sort: 108,
               type: 2,
               children: null,
@@ -444,7 +444,7 @@ const loginModule: Module<ILoginState, IRootState> = {
             {
               id: 43,
               url: '/main/story/list',
-              name: '故事列表',
+              name: 'list',
               sort: 109,
               type: 2,
               children: [

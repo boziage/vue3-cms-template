@@ -2,16 +2,22 @@ import { createStore, Store, useStore as useVuexStore } from 'vuex'
 
 import { IRootState, IStoreType } from './types'
 
+import localCache from '@/utils/cache'
+
 import login from './login/login'
 
 const store = createStore<IRootState>({
   state: () => {
     return {
-      locale: 'zh'
+      lang: localCache.getCache('lang') || 'zh'
     }
   },
   getters: {},
-  mutations: {},
+  mutations: {
+    changeLang(state, lang) {
+      state.lang = lang
+    }
+  },
   actions: {},
   modules: {
     login

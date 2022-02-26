@@ -19,7 +19,7 @@
               <el-icon v-if="item.icon">
                 <component :is="item.icon" />
               </el-icon>
-              <span>{{ item.name }}</span>
+              <span>{{ $t(`menus.${item.name}`) }}</span>
             </template>
             <template v-for="subitem in item.children" :key="subitem.id">
               <el-menu-item
@@ -29,7 +29,7 @@
                 <el-icon v-if="subitem.icon">
                   <component :is="subitem.icon" />
                 </el-icon>
-                <span>{{ subitem.name }}</span>
+                <span>{{ $t(`menus.${subitem.name}`) }}</span>
               </el-menu-item>
             </template>
           </el-sub-menu>
@@ -39,7 +39,7 @@
             <el-icon v-if="item.icon">
               <component :is="item.icon" />
             </el-icon>
-            <span>{{ item.name }}</span>
+            <span>{{ $t(`menus.${item.name}`) }}</span>
           </el-menu-item>
         </template>
       </template>

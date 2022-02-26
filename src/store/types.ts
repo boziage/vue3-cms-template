@@ -8,7 +8,7 @@ export type IStoreType = IRootState & IRootWithModule
 
 // state类型检测
 export interface IRootState {
-  locale: string
+  lang: string
   login?: ILoginState
 }
 
