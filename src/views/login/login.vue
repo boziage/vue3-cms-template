@@ -17,9 +17,9 @@
           @click="handleChangeType"
         ></svg-icon>
       </el-form-item>
-      <el-button type="primary" class="login-button" @click="handleLogin"
-        >login</el-button
-      >
+      <el-button type="primary" class="login-button" @click="handleLogin">{{
+        $t('login.btnTitle')
+      }}</el-button>
     </el-form>
   </div>
 </template>

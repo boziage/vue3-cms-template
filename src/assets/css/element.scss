@@ -2,3 +2,9 @@
   --el-avatar-background-color: none !important;
   --el-avatar-bg-color: none !important;
 }
+
+.deleteMessage {
+  .el-message-box__status {
+    position: absolute !important;
+  }
+}

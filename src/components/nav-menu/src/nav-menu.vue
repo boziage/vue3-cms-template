@@ -53,7 +53,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 import localCache from '@/utils/cache'
 
-import { mapPathToMenus } from '@/utils/map-menus'
+import { mapPathToMenus } from '@/hooks/map-menus'
 
 import { useStore } from '@/store'
 

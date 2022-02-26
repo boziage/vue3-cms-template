@@ -24,7 +24,12 @@ export default {
   dialog: {
     deleteTitle: 'Are you sure you want to delete the user '
   },
+  search: {
+    reset: 'reset',
+    search: 'search'
+  },
   table: {
+    adduser: 'add user',
     username: 'username',
     email: 'email',
     mobile: 'mobile',
@@ -32,9 +37,7 @@ export default {
     mg_state: 'state',
     create_time: 'create_time',
     action: 'action',
-    search: 'search',
-    adduser: 'add user',
-    placeholder: 'Please enter a user name to search for'
+    search: 'search'
   },
   message: {
     updeteSuccess: 'update successfully'
@@ -46,6 +49,14 @@ export default {
     prevBtnText: 'prev',
     guideBtn: 'guidebtn',
     hamburgerBtn: 'hamburgerBtn',
-    fullScreen: 'fullScreen'
+    fullScreen: 'fullScreen',
+    langBtn: 'langBtn'
+  },
+  btns: {
+    logout: 'Logout'
+  },
+  roles: {
+    role: 'Role',
+    administrator: 'administrator'
   }
 }

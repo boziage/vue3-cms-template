@@ -35,7 +35,7 @@ import { defineComponent, computed, watchEffect, ref } from 'vue'
 import { useStore } from '@/store'
 import { useRoute, useRouter } from 'vue-router'
 
-import { mapPathToBreadcrumbs } from '@/utils/map-menus'
+import { mapPathToBreadcrumbs } from '@/hooks/map-menus'
 import localCache from '@/utils/cache'
 
 export default defineComponent({
@@ -156,7 +156,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .nav-history {
   display: flex;
   justify-content: space-between;

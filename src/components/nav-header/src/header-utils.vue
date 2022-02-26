@@ -1,11 +1,12 @@
 <template>
   <div class="headerUtils">
+    <!-- 引导页 -->
+    <driver class="icon" />
     <!-- 全屏 -->
     <screenfull />
     <!-- 国际化 -->
-    <el-dropdown trigger="click" @command="handleCommand">
+    <el-dropdown trigger="click" @command="handleCommand" id="language">
       <svg-icon icon="language" class="icon"></svg-icon>
-      <!-- <img class="lang" src="~@/assets/img/globalization.svg" alt="" /> -->
       <template #dropdown>
         <el-dropdown-menu class="translation">
           <el-dropdown-item
@@ -15,7 +16,8 @@
               color: lang === 'zh' ? '#f4f4f5' : '#000'
             }"
             :disabled="lang === 'zh'"
-            ><el-icon v-show="lang === 'zh'"><check /></el-icon>
+            ><el-icon v-if="lang === 'zh'"><check /></el-icon>
+            <div v-else style="min-width: 19px" />
             简体中文</el-dropdown-item
           >
           <el-dropdown-item
@@ -25,7 +27,8 @@
               color: lang === 'en' ? '#f4f4f5' : '#000'
             }"
             :disabled="lang === 'en'"
-            ><el-icon v-show="lang === 'en'"><check /></el-icon>
+            ><el-icon v-if="lang === 'en'"><check /></el-icon>
+            <div v-else style="min-width: 19px" />
             English</el-dropdown-item
           >
         </el-dropdown-menu>
@@ -36,13 +39,12 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-
 import localCache from '@/utils/cache'
 
 import { useStore } from '@/store'
 const store = useStore()
 
-import { useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n/index.js'
 const i18n = useI18n()
 
 const lang = computed(() => {
@@ -59,12 +61,12 @@ const handleCommand = (val: string) => {
 <style lang="scss" scoped>
 .headerUtils {
   display: flex;
-  align-content: center;
   justify-content: space-evenly;
+  align-items: center;
   font-size: 18px;
 }
 .icon {
-  font-size: 20px;
+  font-size: 19px;
 }
 :deep(.el-dropdown) {
   display: flex;

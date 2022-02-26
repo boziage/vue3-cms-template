@@ -12,6 +12,7 @@ const webpack = require('webpack')
 module.exports = {
   devServer: {
     https: false,
+    // 编译报错，你再改成正确的，重新编译，浏览器不会刷新
     hotOnly: false,
     // 报错时页面蒙层
     overlay: {
@@ -24,6 +25,13 @@ module.exports = {
         target: 'https://lianghj.top:8888/api/private/v1',
         pathRewrite: {
           '^/api': ''
+        },
+        changeOrigin: true
+      },
+      '^/coderwhy': {
+        target: 'http://152.136.185.210:5000',
+        pathRewrite: {
+          '^/coderwhy': ''
         },
         changeOrigin: true
       }

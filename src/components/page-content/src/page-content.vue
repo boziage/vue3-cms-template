@@ -11,14 +11,14 @@
       <template #headerHandler>
         <el-button
           type="text"
-          icon="el-icon-refresh-right"
+          icon="RefreshRight"
           @click="handleRefresh"
         ></el-button>
         <el-button
           v-if="isCreate"
           type="primary"
           @click="handleNewClick"
-          size="medium"
+          size="default"
           >新建{{ pageTitle }}</el-button
         >
       </template>
@@ -26,7 +26,7 @@
       <template #status="scope">
         <el-button
           plain
-          size="mini"
+          size="small"
           :type="scope.row.enable ? 'success' : 'danger'"
         >
           {{ scope.row.enable ? '启用' : '禁用' }}
@@ -42,16 +42,16 @@
         <div class="handle-btns">
           <el-button
             v-if="isUpdate"
-            icon="el-icon-edit"
-            size="mini"
+            icon="Edit"
+            size="small"
             type="text"
             @click="handleEditClick(scope.row)"
             >编辑</el-button
           >
           <el-button
             v-if="isDelete"
-            icon="el-icon-delete"
-            size="mini"
+            icon="Delete"
+            size="small"
             type="text"
             @click="handleDeleteClick(scope.row)"
             >删除</el-button
@@ -78,7 +78,7 @@ import { defineComponent, computed, ref, watch } from 'vue'
 import { useStore } from '@/store'
 import { usePermission } from '@/hooks/use-permission'
 
-import { useMessage } from '@/hooks/use-message'
+import { useMessage } from '@/utils/use-message'
 
 import BoTable from '@/base-ui/table'
 
@@ -106,7 +106,7 @@ export default defineComponent({
     })
 
     // 分页器相关
-    const pageInfo = ref({ currentPage: 1, pageSize: 10 })
+    const pageInfo = ref({ pagenum: 1, pagesize: 10 })
     watch(pageInfo, () => getPageData())
 
     // 发送网络请求
@@ -116,8 +116,8 @@ export default defineComponent({
         store.dispatch('system/getPageListAction', {
           pageName: props.pageName,
           queryInfo: {
-            offset: (pageInfo.value.currentPage - 1) * pageInfo.value.pageSize,
-            size: pageInfo.value.pageSize,
+            pagenum: pageInfo.value.pagenum,
+            pagesize: pageInfo.value.pagesize,
             ...queryInfo
           }
         })
@@ -147,7 +147,7 @@ export default defineComponent({
     getPageData()
 
     const handleRefresh = () => {
-      pageInfo.value = { ...pageInfo.value, currentPage: 1 }
+      pageInfo.value = { ...pageInfo.value, pagenum: 1 }
     }
 
     // select改变时获取选择的数据
@@ -196,7 +196,6 @@ export default defineComponent({
     return {
       listData,
       listCount,
-      getPageData,
       pageInfo,
       pageTitle,
       otherPropSlots,

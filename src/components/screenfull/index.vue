@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-full" @click="toggle">
+  <div class="screen-full" @click="toggle" id="screenfull">
     <svg-icon
       :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"
     ></svg-icon>
@@ -13,10 +13,7 @@ const { isFullscreen, toggle } = useFullscreen()
 
 <style lang="scss" scoped>
 .screen-full {
-  width: 36px;
-  height: 48px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
 }
 </style>

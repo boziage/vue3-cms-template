@@ -5,6 +5,7 @@ import { IRootState, IStoreType } from './types'
 import localCache from '@/utils/cache'
 
 import login from './login/login'
+import system from './system/system'
 
 const store = createStore<IRootState>({
   state: () => {
@@ -20,7 +21,8 @@ const store = createStore<IRootState>({
   },
   actions: {},
   modules: {
-    login
+    login,
+    system
   }
 })
 

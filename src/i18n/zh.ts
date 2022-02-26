@@ -24,17 +24,19 @@ export default {
   dialog: {
     deleteTitle: '确定要删除用户'
   },
+  search: {
+    reset: '重置',
+    search: '搜索'
+  },
   table: {
+    adduser: '添加用户',
     username: '姓名',
     email: '邮箱',
     mobile: '手机',
     role_name: '角色',
     mg_state: '状态',
     create_time: '创建时间',
-    action: '操作',
-    search: '搜索',
-    adduser: '添加用户',
-    placeholder: '请输入搜索的用户姓名'
+    action: '操作'
   },
   message: {
     updeteSuccess: '更新成功'
@@ -46,6 +48,14 @@ export default {
     prevBtnText: '上一步',
     guideBtn: '引导按钮',
     hamburgerBtn: '汉堡按钮',
-    fullScreen: '全屏按钮'
+    fullScreen: '全屏按钮',
+    langBtn: '语言按钮'
+  },
+  btns: {
+    logout: '退出登录'
+  },
+  roles: {
+    role: '角色',
+    administrator: '管理员'
   }
 }

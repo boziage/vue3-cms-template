@@ -14,18 +14,14 @@ export interface IRootState {
 
 export interface ILoginState {
   token: string
-  userMenus: any[]
+  userMenus: any
+  userInfo: any
+  permissions: string[]
 }
 
 export interface ISystemState {
   usersList: any[]
   usersCount: number
-  roleList: any[]
-  roleCount: number
-  goodsList: any[]
-  goodsCount: number
-  menuList: any[]
-  menuCount: number
 }
 
 export interface IDashboardState {

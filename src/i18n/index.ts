@@ -1,4 +1,4 @@
-import { createI18n } from 'vue-i18n'
+import { createI18n } from 'vue-i18n/index.js'
 import EN from './en'
 import ZH from './zh'
 
@@ -14,7 +14,13 @@ const messages = {
 
 const getCurrentLanguage = () => {
   const UAlang = navigator.language // zh-CN
-  const langCode = UAlang.indexOf('zh') !== -1 ? 'zh' : 'en'
+  let langCode
+  if (localCache.getCache('lang')) {
+    langCode = localCache.getCache('lang')
+  } else {
+    langCode = UAlang.indexOf('zh') !== -1 ? 'zh' : 'en'
+  }
+
   localCache.setCache('lang', langCode)
   return langCode
 }

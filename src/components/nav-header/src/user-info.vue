@@ -11,10 +11,12 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item icon="CircleClose" @click="handleExitClick"
-            >退出登录</el-dropdown-item
+          <el-dropdown-item icon="CircleClose" @click="handleExitClick">{{
+            $t('btns.logout')
+          }}</el-dropdown-item>
+          <el-dropdown-item divided
+            >{{ $t('roles.role') }}：{{ $t(`roles.${role}`) }}</el-dropdown-item
           >
-          <el-dropdown-item divided>角色：{{ role }}</el-dropdown-item>
           <!-- <el-dropdown-item>系统管理</el-dropdown-item> -->
         </el-dropdown-menu>
       </template>
@@ -25,14 +27,11 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useStore } from '@/store'
-// import localCache from '@/utils/cache'
-// import { useRouter } from 'vue-router'
 
 const store = useStore()
 const name = computed(() => 'boziage')
-const role = computed(() => '管理员')
+const role = computed(() => 'administrator')
 
-// const router = useRouter()
 const handleExitClick = () => {
   store.dispatch('login/logoutAction')
 }

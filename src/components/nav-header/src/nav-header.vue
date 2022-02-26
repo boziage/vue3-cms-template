@@ -1,12 +1,12 @@
 <template>
   <div class="nav-header">
-    <el-icon class="fold-menu" @click="handleFoldClick">
+    <el-icon class="fold-menu" id="hamburger" @click="handleFoldClick">
       <component :is="isFold ? 'Fold' : 'Expand'"></component>
     </el-icon>
     <div class="content">
       <bo-breadcrumb :breadcrumbs="breadcrumbs" />
       <div class="content-right">
-        <header-utils />
+        <header-utils class="utils" />
         <user-info />
       </div>
     </div>
@@ -15,11 +15,8 @@
 
 <script lang="ts" setup>
 import { watch, ref, defineEmits } from 'vue'
-// import HeaderUtils from './header-utils.vue'
-// import UserInfo from './user-info.vue'
 import BoBreadcrumb from '@/base-ui/breadcrumb'
 
-// import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 
 const emit = defineEmits(['foldChange'])
@@ -63,8 +60,13 @@ watch(
     justify-content: space-between;
     align-items: center;
 
+    .utils {
+      flex: 1;
+      margin-right: 10px;
+    }
+
     &-right {
-      width: 180px;
+      width: 200px;
       display: flex;
       justify-content: space-between;
       align-items: center;

@@ -1,18 +1,17 @@
 <template>
   <div class="user">
-    <h2>user</h2>
+    <page-search :searchFormConfig="searchFormConfig" />
+    <page-content
+      ref="pageContentRef"
+      pageName="users"
+      :contentTableConfig="contentTableConfig"
+    ></page-content>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'user',
-  setup() {
-    return {}
-  }
-})
+<script setup>
+import { searchFormConfig } from './config/search.config'
+import { contentTableConfig } from './config/content.config'
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
