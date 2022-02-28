@@ -33,7 +33,9 @@ const breadcrumbs = ref([] as any[])
 watch(
   route,
   () => {
-    const arr = route.matched[1]?.path.split('/').slice(2)
+    const arr = route.matched[route.matched.length - 1]?.path
+      .split('/')
+      .slice(2)
     breadcrumbs.value = arr
   },
   {

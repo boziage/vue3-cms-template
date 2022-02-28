@@ -33,10 +33,10 @@
         </el-button>
       </template>
       <template #createAt="scope">
-        <span>{{ $filters.formatTime(scope.row.createAt) }}</span>
+        <span>{{ $filters.formatTimeSecond(scope.row.create_time) }}</span>
       </template>
       <template #updateAt="scope">
-        <span>{{ $filters.formatTime(scope.row.createAt) }}</span>
+        <span>{{ $filters.formatTimeSecond(scope.row.update_time) }}</span>
       </template>
       <template #handler="scope">
         <div class="handle-btns">

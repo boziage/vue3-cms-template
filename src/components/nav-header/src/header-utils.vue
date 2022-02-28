@@ -9,24 +9,12 @@
       <svg-icon icon="language" class="icon"></svg-icon>
       <template #dropdown>
         <el-dropdown-menu class="translation">
-          <el-dropdown-item
-            command="zh"
-            :style="{
-              background: lang === 'zh' ? '#1b2a47' : '',
-              color: lang === 'zh' ? '#f4f4f5' : '#000'
-            }"
-            :disabled="lang === 'zh'"
+          <el-dropdown-item command="zh" :disabled="lang === 'zh'"
             ><el-icon v-if="lang === 'zh'"><check /></el-icon>
             <div v-else style="min-width: 19px" />
             简体中文</el-dropdown-item
           >
-          <el-dropdown-item
-            command="en"
-            :style="{
-              background: lang === 'en' ? '#1b2a47' : '',
-              color: lang === 'en' ? '#f4f4f5' : '#000'
-            }"
-            :disabled="lang === 'en'"
+          <el-dropdown-item command="en" :disabled="lang === 'en'"
             ><el-icon v-if="lang === 'en'"><check /></el-icon>
             <div v-else style="min-width: 19px" />
             English</el-dropdown-item

@@ -50,7 +50,11 @@ export default {
     guideBtn: 'guidebtn',
     hamburgerBtn: 'hamburgerBtn',
     fullScreen: 'fullScreen',
-    langBtn: 'langBtn'
+    langBtn: 'langBtn',
+    guideContent: 'guideBtn here',
+    hamburgerContent: 'hamburgerBtn here',
+    fullScreenContent: 'fullScreen here',
+    langContent: 'langBtn here'
   },
   btns: {
     logout: 'Logout'

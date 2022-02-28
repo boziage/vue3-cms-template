@@ -98,6 +98,7 @@ const handleMenuItemClick = (item: any) => {
 .nav-menu {
   height: 100%;
   background-color: #001529;
+  cursor: auto;
 
   .logo {
     display: flex;

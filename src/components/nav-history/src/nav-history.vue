@@ -2,22 +2,23 @@
   <div class="nav-history">
     <div class="tags">
       <p
+        class="tag"
         v-for="(tag, index) in tags"
         :key="index"
         :class="index === currentIndex ? 'current' : ''"
         @click="handleChangeRoute(tag.path)"
       >
-        {{ tag.name }}
-        <i
+        {{ $t(`menus.${tag.name}`) }}
+        <el-icon
           v-if="index !== 0"
-          class="el-icon-close"
           @click.prevent.stop="handleClose(index, tag.path)"
-        />
+          ><close
+        /></el-icon>
       </p>
     </div>
     <div class="dropdown">
       <el-dropdown v-if="tags.length > 1" placement="bottom-end">
-        <span class="el-icon-arrow-down el-icon--right" />
+        <el-icon><arrow-down /></el-icon>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item @click="handleCloseOther"
@@ -32,10 +33,9 @@
 
 <script lang="ts">
 import { defineComponent, computed, watchEffect, ref } from 'vue'
-import { useStore } from '@/store'
+// import { useStore } from '@/store'
 import { useRoute, useRouter } from 'vue-router'
 
-import { mapPathToBreadcrumbs } from '@/hooks/map-menus'
 import localCache from '@/utils/cache'
 
 export default defineComponent({
@@ -45,7 +45,7 @@ export default defineComponent({
     const currentIndex = ref(0)
     const tags: any = ref([
       {
-        name: '首页',
+        name: 'main',
         path: '/main/analysis/overview'
       }
     ])
@@ -60,14 +60,20 @@ export default defineComponent({
     }
 
     // 面包屑数据 [{name,path}]
-    const store = useStore()
+    // const store = useStore()
     const route = useRoute()
     const router = useRouter()
     // TODO
+    // const breadcrumbs: any = computed(() => {
+    //   const userMenus = store.state.login.userMenus
+    //   const currentPath = route.path
+    //   return mapPathToBreadcrumbs(userMenus, currentPath)
+    // })
     const breadcrumbs: any = computed(() => {
-      const userMenus = store.state.login.userMenus
-      const currentPath = route.path
-      return mapPathToBreadcrumbs(userMenus, currentPath)
+      // const arr = route.matched[route.matched.length - 1]
+      const arr = route.matched
+      console.log(arr)
+      return arr
     })
 
     // console.log(route)
@@ -156,7 +162,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .nav-history {
   display: flex;
   justify-content: space-between;
@@ -168,6 +174,12 @@ export default defineComponent({
     font-size: 14px;
     display: flex;
     overflow-x: scroll;
+
+    .tag {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     p {
       cursor: pointer;
@@ -192,6 +204,11 @@ export default defineComponent({
   width: 24px;
 }
 
+:deep(.el-dropdown-menu__item) {
+  white-space: nowrap;
+}
+
+// 滚动条
 *::-webkit-scrollbar {
   width: 6px;
   height: 6px;

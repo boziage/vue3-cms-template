@@ -8,7 +8,7 @@
         <el-header class="page-header">
           <nav-header @foldChange="handleFoldChange" />
         </el-header>
-        <!-- <nav-history class="page-history" /> -->
+        <nav-history class="page-history" />
         <el-main class="page-content">
           <div class="page-info">
             <router-view class="router-view"></router-view>
@@ -42,6 +42,8 @@ const handleFoldChange = (isFold: boolean) => {
   left: 0;
   width: 100%;
   height: 100%;
+  min-width: 1280px;
+  min-height: 720px;
 }
 
 .nav-history {
@@ -51,7 +53,7 @@ const handleFoldChange = (isFold: boolean) => {
 .main-content,
 .page {
   height: 100%;
-  min-width: 900px;
+  // min-width: 900px;
 }
 
 .page-content {

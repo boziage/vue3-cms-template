@@ -49,7 +49,11 @@ export default {
     guideBtn: '引导按钮',
     hamburgerBtn: '汉堡按钮',
     fullScreen: '全屏按钮',
-    langBtn: '语言按钮'
+    langBtn: '语言按钮',
+    guideContent: '这是用来引导的~',
+    hamburgerContent: '这是面板折叠按钮~',
+    fullScreenContent: '点了就全屏了！',
+    langContent: '设置语言，目前支持中英~'
   },
   btns: {
     logout: '退出登录'

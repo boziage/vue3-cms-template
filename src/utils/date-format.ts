@@ -16,5 +16,12 @@ export function formatTimestamp(
   timestamp: string,
   format: string = DATE_TIME_FORMAT
 ) {
-  return dayjs().format(format)
+  return dayjs(timestamp).format(format)
+}
+
+export function formatTimeSecond(
+  time: number,
+  format: string = DATE_TIME_FORMAT
+) {
+  return dayjs(time).format(format)
 }

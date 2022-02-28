@@ -3,7 +3,7 @@ export const steps = (i18n: any) => [
     element: '#guide',
     popover: {
       title: i18n('driver.guideBtn'),
-      description: 'Body of the popover',
+      description: i18n('driver.guideContent'),
       position: 'left'
     }
   },
@@ -11,7 +11,7 @@ export const steps = (i18n: any) => [
     element: '#hamburger',
     popover: {
       title: i18n('driver.hamburgerBtn'),
-      description: 'Body of the popover',
+      description: i18n('driver.hamburgerContent'),
       position: 'bottom'
     }
   },
@@ -19,7 +19,7 @@ export const steps = (i18n: any) => [
     element: '#screenfull',
     popover: {
       title: i18n('driver.fullScreen'),
-      description: 'Body of the popover',
+      description: i18n('driver.fullScreenContent'),
       position: 'left'
     }
   },
@@ -27,7 +27,7 @@ export const steps = (i18n: any) => [
     element: '#language',
     popover: {
       title: i18n('driver.langBtn'),
-      description: 'Body of the popover',
+      description: i18n('driver.langContent'),
       position: 'left'
     }
   }
