@@ -1,44 +1,44 @@
 export const contentTableConfig = {
-  title: '用户列表',
+  title: 'user',
   propList: [
     {
       prop: 'username',
-      label: '用户名',
+      label: 'username',
       minWidth: '100',
       slotName: 'username'
     },
     {
       prop: 'email',
-      label: '邮箱',
+      label: 'email',
       minWidth: '100',
       slotName: 'email'
     },
     {
       prop: 'mobile',
-      label: '手机号码',
+      label: 'mobile',
       minWidth: '100',
       slotName: 'mobile'
     },
     {
       prop: 'role_name',
-      label: '角色',
+      label: 'role_name',
       minWidth: '100',
       slotName: 'role_name'
     },
     {
       prop: 'mg_state',
-      label: '状态',
+      label: 'mg_state',
       minWidth: '100',
       slotName: 'status'
     },
     {
       prop: 'create_time',
-      label: '创建时间',
+      label: 'create_time',
       minWidth: '250',
       slotName: 'createAt'
     },
     {
-      label: '操作',
+      label: 'action',
       minWidth: '120',
       slotName: 'handler'
     }

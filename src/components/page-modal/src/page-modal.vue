@@ -3,14 +3,15 @@
     <el-dialog
       :title="
         dialogType === 'new'
-          ? `新建${modalConfig.title ?? ''}`
+          ? `${$t('btns.new')}${$t(`modalTitle.${modalConfig.title}`) ?? ''}`
           : dialogType === 'edit'
-          ? `编辑${modalConfig.title ?? ''}`
-          : '提示'
+          ? `${$t('btns.edit')}${$t(`modalTitle.${modalConfig.title}`) ?? ''}`
+          : $t('modalTitle.default')
       "
       v-model="dialogVisible"
-      width="30%"
+      :width="720"
       center
+      append-to-body
       destroy-on-close
     >
       <bo-form v-bind="modalConfig" v-model="formData"></bo-form>
@@ -99,4 +100,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

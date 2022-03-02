@@ -19,7 +19,7 @@
           type="primary"
           @click="handleNewClick"
           size="default"
-          >新建{{ pageTitle }}</el-button
+          >{{ $t('btns.new') }}{{ $t(`tableTitle.${pageTitle}`) }}</el-button
         >
       </template>
       <!-- 列中插槽 -->
@@ -27,9 +27,10 @@
         <el-button
           plain
           size="small"
-          :type="scope.row.enable ? 'success' : 'danger'"
+          :type="scope.row.mg_state ? 'success' : 'danger'"
+          @click="handleStateClick(scope.row)"
         >
-          {{ scope.row.enable ? '启用' : '禁用' }}
+          {{ scope.row.mg_state ? '启用' : '禁用' }}
         </el-button>
       </template>
       <template #createAt="scope">
@@ -46,7 +47,7 @@
             size="small"
             type="text"
             @click="handleEditClick(scope.row)"
-            >编辑</el-button
+            >{{ $t('btns.edit') }}</el-button
           >
           <el-button
             v-if="isDelete"
@@ -54,7 +55,7 @@
             size="small"
             type="text"
             @click="handleDeleteClick(scope.row)"
-            >删除</el-button
+            >{{ $t('btns.delete') }}</el-button
           >
         </div>
       </template>
@@ -102,7 +103,7 @@ export default defineComponent({
 
     // 获取菜单名字
     const pageTitle = computed(() => {
-      return props.contentTableConfig.title.slice(0, 2)
+      return props.contentTableConfig.title
     })
 
     // 分页器相关
@@ -164,6 +165,15 @@ export default defineComponent({
 
     const { deleteMessage } = useMessage(pageTitle, deleteCb)
 
+    const handleStateClick = (row: any) => {
+      if (isQuery) {
+        store.dispatch('system/changeStateAction', {
+          pageName: props.pageName,
+          row
+        })
+      }
+    }
+
     const handleDeleteClick = (item: any) => {
       deleteMessage(item)
     }
@@ -202,6 +212,7 @@ export default defineComponent({
       isCreate,
       isUpdate,
       isDelete,
+      handleStateClick,
       handleDeleteClick,
       handleNewClick,
       handleEditClick,

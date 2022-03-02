@@ -9,7 +9,7 @@
           <el-col v-bind="colLayout">
             <el-form-item
               v-if="!item.isHidden"
-              :label="item.label"
+              :label="$t(`table.${item.label}`)"
               :rules="item.rules"
               :style="itemLayout"
             >
@@ -17,7 +17,7 @@
                 v-if="item.type === 'input' || item.type === 'password'"
               >
                 <el-input
-                  :placeholder="item.placeholder"
+                  :placeholder="$t(`message.${item.placeholder}`)"
                   :show-password="item.type === 'password'"
                   v-bind="item.otherOptions"
                   :model-value="modelValue[`${item.field}`]"
@@ -123,6 +123,10 @@ export default defineComponent({
         sm: 24,
         xs: 24
       })
+    },
+    rules: {
+      type: Object,
+      default: () => ({})
     }
   },
   emits: ['update:modelValue'],

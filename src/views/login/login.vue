@@ -81,14 +81,85 @@ $black: #000;
 $cursor: #fff;
 
 .login-container {
-  min-height: 100%;
-  width: 100%;
-  // background-color: $bg;
-  background: url('~@/assets/img/login-bg.svg');
-  overflow: hidden;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #e493d0;
+  background-image: radial-gradient(
+      closest-side,
+      rgba(235, 105, 78, 1),
+      rgba(235, 105, 78, 0)
+    ),
+    radial-gradient(closest-side, rgba(243, 11, 164, 1), rgba(243, 11, 164, 0)),
+    radial-gradient(
+      closest-side,
+      rgba(254, 234, 131, 1),
+      rgba(254, 234, 131, 0)
+    ),
+    radial-gradient(
+      closest-side,
+      rgba(170, 142, 245, 1),
+      rgba(170, 142, 245, 0)
+    ),
+    radial-gradient(
+      closest-side,
+      rgba(248, 192, 147, 1),
+      rgba(248, 192, 147, 0)
+    );
+  background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax,
+    110vmax 110vmax, 90vmax 90vmax;
+  background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax,
+    -30vmax -10vmax, 50vmax 50vmax;
+  background-repeat: no-repeat;
+  animation: 10s movement linear infinite;
+
+  &::after {
+    content: '';
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  @keyframes movement {
+    0%,
+    100% {
+      background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax,
+        110vmax 110vmax, 90vmax 90vmax;
+      background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax,
+        -30vmax -10vmax, 50vmax 50vmax;
+    }
+    25% {
+      background-size: 100vmax 100vmax, 90vmax 90vmax, 100vmax 100vmax,
+        90vmax 90vmax, 60vmax 60vmax;
+      background-position: -60vmax -90vmax, 50vmax -40vmax, 0vmax -20vmax,
+        -40vmax -20vmax, 40vmax 60vmax;
+    }
+    50% {
+      background-size: 80vmax 80vmax, 110vmax 110vmax, 80vmax 80vmax,
+        60vmax 60vmax, 80vmax 80vmax;
+      background-position: -50vmax -70vmax, 40vmax -30vmax, 10vmax 0vmax,
+        20vmax 10vmax, 30vmax 70vmax;
+    }
+    75% {
+      background-size: 90vmax 90vmax, 90vmax 90vmax, 100vmax 100vmax,
+        90vmax 90vmax, 70vmax 70vmax;
+      background-position: -50vmax -40vmax, 50vmax -30vmax, 20vmax 0vmax,
+        -10vmax 10vmax, 40vmax 60vmax;
+    }
+  }
+  // min-height: 100%;
+  // width: 100%;
+  // // background-color: $bg;
+  // background: url('~@/assets/img/login-bg.svg');
+  // overflow: hidden;
 
   .login-form {
     position: relative;
+    z-index: 10;
     width: 520px;
     max-width: 100%;
     padding: 160px 35px 0;
@@ -102,13 +173,16 @@ $cursor: #fff;
         -webkit-appearance: none;
         border-radius: 5px;
         padding: 12px 38px;
-        color: $black;
+        color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.3);
         height: 48px;
         // --el-input-focus-border: red;
         // caret-color: $cursor;
       }
     }
     .login-button {
+      background-color: rgba(255, 255, 255, 0.3);
+      border: 1px solid #dcdfe6;
       width: 100%;
       height: 40px;
       box-sizing: border-box;
@@ -141,7 +215,10 @@ $cursor: #fff;
 
     .title {
       font-size: 26px;
-      color: $black;
+      color: transparent;
+      text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.6),
+        0px 4px 4px rgba(0, 0, 0, 0.05);
+      // letter-spacing: 0.2rem;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;

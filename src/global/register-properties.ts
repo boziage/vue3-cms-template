@@ -15,7 +15,7 @@ export default function (app: App) {
       return formatUtcString(value)
     },
     formatTimeSecond(value: string) {
-      const val = Number(value) * 1000
+      const val = parseInt(value) * 1000
       return formatTimeSecond(val)
     },
     formatTimeStamp(value: string) {

@@ -4,10 +4,10 @@ export default {
     main: 'main',
     analysis: 'System analysis',
     overview: 'Overview technology',
-    dashboard: 'Dshboard',
+    dashboard: 'Dashboard',
     system: 'System',
     user: 'User list',
-    department: 'department management',
+    department: 'Departmenat management',
     menu: 'Menu management',
     role: 'Role management',
     product: 'Product management',
@@ -22,15 +22,20 @@ export default {
     btnTitle: 'login'
   },
   dialog: {
-    deleteTitle: 'Are you sure you want to delete the user '
+    deleteTitle: 'Are you sure you want to delete the user ',
+    cancelTitle: 'Cancel delete'
   },
   search: {
+    title: 'Search Form',
     reset: 'reset',
     search: 'search'
   },
   table: {
+    idx: 'index',
+    id: 'id',
     adduser: 'add user',
     username: 'username',
+    password: 'password',
     email: 'email',
     mobile: 'mobile',
     role_name: 'role name',
@@ -39,8 +44,43 @@ export default {
     action: 'action',
     search: 'search'
   },
+  tableTitle: {
+    '/': 'main',
+    main: '首页',
+    overview: 'Overview Technology',
+    dashboard: 'Dashboard',
+    user: ' User List',
+    department: 'Departmenat List',
+    menu: 'Menu List',
+    role: 'Role List',
+    category: 'Product Category',
+    goods: 'Product Info',
+    chat: 'Chat Room',
+    list: 'Story List'
+  },
+  modalTitle: {
+    '/': 'main',
+    main: '首页',
+    overview: 'Overview Technology',
+    dashboard: 'Dashboard',
+    user: ' User',
+    department: 'Departmenat List',
+    menu: 'Menu List',
+    role: 'Role List',
+    category: 'Product Category',
+    goods: 'Product Info',
+    chat: 'Chat Room',
+    list: 'Story List',
+    default: 'Warning'
+  },
   message: {
-    updeteSuccess: 'update successfully'
+    updeteSuccess: 'update successfully',
+    id: 'please input id',
+    username: 'please input username',
+    password: 'please input password',
+    email: 'please input email',
+    mobile: 'please input mobile',
+    role_name: 'please input roleName'
   },
   driver: {
     doneBtnText: 'done',
@@ -57,7 +97,12 @@ export default {
     langContent: 'langBtn here'
   },
   btns: {
-    logout: 'Logout'
+    logout: 'Logout',
+    new: 'New',
+    edit: 'Edit',
+    delete: 'Delete',
+    confirm: 'Confirm',
+    cancel: 'Cancel'
   },
   roles: {
     role: 'Role',

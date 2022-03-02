@@ -1,5 +1,8 @@
 import { ElMessage, ElMessageBox } from 'element-plus'
 
+import i18n from '@/i18n'
+const t = i18n.global.t
+
 type CallbackType = (item?: any) => void
 
 export function useMessage(
@@ -8,39 +11,12 @@ export function useMessage(
   error?: CallbackType
 ) {
   const deleteMessage = (item: any) => {
-    // ElMessageBox.confirm(
-    //   'proxy will permanently delete the file. Continue?',
-    //   'Warning',
-    //   {
-    //     confirmButtonText: 'OK',
-    //     cancelButtonText: 'Cancel',
-    //     type: 'warning'
-    //   }
-    // )
-    //   .then(() => {
-    //     cb && cb(item)
-    //     // ElMessage({
-    //     //   type: 'success',
-    //     //   message: 'Delete completed'
-    //     // })
-    //   })
-    //   .catch(() => {
-    //     error && error()
-    //     ElMessage({
-    //       type: 'info',
-    //       message: 'Delete canceled'
-    //     })
-    //   })
-    ElMessageBox.confirm(
-      `此操作将永久删除该${pageTitle.value}, 是否继续?`,
-      '提示',
-      {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning',
-        customClass: 'deleteMessage'
-      }
-    )
+    ElMessageBox.confirm(t('dialog.deleteTitle'), t('modalTitle.default'), {
+      confirmButtonText: t('btns.confirm'),
+      cancelButtonText: t('btns.cancel'),
+      type: 'warning',
+      customClass: 'deleteMessage'
+    })
       .then(() => {
         cb && cb(item)
       })
@@ -48,7 +24,7 @@ export function useMessage(
         error && error()
         ElMessage({
           type: 'info',
-          message: '已取消删除'
+          message: t('dialog.cancelTitle')
         })
       })
   }

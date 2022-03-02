@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <el-container class="main-content">
-      <el-aside :width="isCollapse ? '60px' : '210px'">
+      <el-aside :width="isCollapse ? '60px' : '240px'">
         <nav-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
@@ -11,7 +11,13 @@
         <nav-history class="page-history" />
         <el-main class="page-content">
           <div class="page-info">
-            <router-view class="router-view"></router-view>
+            <router-view class="router-view" v-slot="{ Component }">
+              <transition
+                enter-active-class="animate__animated animate__fadeInLeft"
+                leave-active-class="animate__animated animate__fadeOutRight"
+                ><component :is="Component"
+              /></transition>
+            </router-view>
           </div>
         </el-main>
         <el-footer class="page-footer">
@@ -60,9 +66,11 @@ const handleFoldChange = (isFold: boolean) => {
   // height: calc(100% - 48px);
   .page-info {
     // background-color: #fff;
+    position: relative;
+
     border-radius: 5px;
     height: 100%;
-    // overflow-x: hidden;
+    overflow-x: hidden;
   }
   *::-webkit-scrollbar {
     width: 6px;
@@ -87,6 +95,7 @@ const handleFoldChange = (isFold: boolean) => {
   justify-content: flex-start;
   align-items: center;
   user-select: none;
+  z-index: 10000;
 }
 
 .el-header {
@@ -103,7 +112,7 @@ const handleFoldChange = (isFold: boolean) => {
 .el-aside {
   overflow-x: hidden;
   overflow-y: auto;
-  line-height: 200px;
+  // line-height: 200px;
   text-align: left;
   cursor: pointer;
   background-color: #001529;
@@ -135,7 +144,10 @@ const handleFoldChange = (isFold: boolean) => {
 }
 
 .router-view {
+  position: absolute;
+
   height: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 </style>

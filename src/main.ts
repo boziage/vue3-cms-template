@@ -8,6 +8,7 @@ import { setupStore } from './store'
 
 import { globalRegister } from '@/global'
 
+import 'animate.css'
 import 'normalize.css'
 import '@/assets/css/index.scss'
 import 'element-plus/dist/index.css'

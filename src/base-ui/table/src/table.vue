@@ -2,7 +2,7 @@
   <div class="bo-table">
     <div class="header">
       <slot name="header">
-        <div class="title">{{ title }}</div>
+        <div class="title">{{ $t(`tableTitle.${title}`) }}</div>
         <div class="handler">
           <slot name="headerHandler"></slot>
         </div>
@@ -25,12 +25,17 @@
       <el-table-column
         v-if="showIndexColumn"
         type="index"
-        label="序号"
+        :label="$t('table.idx')"
         align="center"
         width="80"
       ></el-table-column>
       <template v-for="propItem in propList" :key="propItem.prop">
-        <el-table-column v-bind="propItem" align="center" show-overflow-tooltip>
+        <el-table-column
+          v-bind="propItem"
+          align="center"
+          :label="$t(`table.${propItem.label}`)"
+          show-overflow-tooltip
+        >
           <template #default="scope">
             <slot :name="propItem.slotName" :row="scope.row">
               {{ scope.row[propItem.prop] }}
@@ -44,9 +49,9 @@
         <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page="page.currentPage"
+          :current-page="page.pagenum"
           :page-sizes="[10, 20, 30]"
-          :page-size="page.pageSize"
+          :page-size="page.pagesize"
           layout="total, sizes, prev, pager, next, jumper"
           :total="listCount"
         >
@@ -106,12 +111,12 @@ export default defineComponent({
     }
 
     // 分页器
-    const handleSizeChange = (pageSize: number) => {
-      emit('update:page', { ...props.page, pageSize })
+    const handleSizeChange = (pagesize: number) => {
+      emit('update:page', { ...props.page, pagesize })
     }
 
-    const handleCurrentChange = (currentPage: number) => {
-      emit('update:page', { ...props.page, currentPage })
+    const handleCurrentChange = (pagenum: number) => {
+      emit('update:page', { ...props.page, pagenum })
     }
 
     return {
@@ -124,6 +129,23 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+:deep(.el-table__body-wrapper) {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #ddd;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #ccc;
+  }
+}
+
 .header {
   display: flex;
   height: 45px;

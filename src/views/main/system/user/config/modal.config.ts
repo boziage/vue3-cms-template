@@ -1,46 +1,62 @@
 import type { IForm } from '@/base-ui/form'
+import i18n from '@/i18n'
+const t = i18n.global.t
 
 export const modalConfig: IForm = {
-  title: '用户',
+  title: 'user',
   formItems: [
     {
-      field: 'name',
+      field: 'username',
       type: 'input',
-      label: '用户名',
-      placeholder: '请输入用户名'
-    },
-    {
-      field: 'realname',
-      type: 'input',
-      label: '真实姓名',
-      placeholder: '请输入真实姓名'
+      label: 'username',
+      placeholder: 'username',
+      rules: [
+        {
+          required: true,
+          message: t('message.username'),
+          trigger: 'blur'
+        }
+      ]
     },
     {
       field: 'password',
       type: 'password',
-      label: '密码',
-      placeholder: '请输入密码',
-      isHidden: true
+      label: 'password',
+      placeholder: 'password',
+      isHidden: true,
+      rules: [
+        {
+          required: true,
+          message: t('message.password'),
+          trigger: 'blur'
+        }
+      ]
     },
     {
-      field: 'cellphone',
+      field: 'email',
       type: 'input',
-      label: '电话号码',
-      placeholder: '请输入电话号码'
+      label: 'email',
+      placeholder: 'email',
+      rules: [
+        {
+          required: true,
+          message: t('message.email'),
+          trigger: 'blur'
+        }
+      ]
     },
     {
-      field: 'departmentId',
-      type: 'select',
-      label: '选择部门',
-      placeholder: '请选择部门',
-      options: []
-    },
-    {
-      field: 'roleId',
-      type: 'select',
-      label: '选择角色',
-      placeholder: '请选择角色',
-      options: []
+      field: 'mobile',
+      type: 'input',
+      label: 'mobile',
+      placeholder: 'mobile',
+      rules: [
+        {
+          required: true,
+          message: t('message.mobile'),
+          trigger: 'blur'
+        }
+      ]
     }
   ],
   colLayout: { span: 24 },

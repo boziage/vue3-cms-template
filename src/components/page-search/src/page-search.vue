@@ -2,14 +2,16 @@
   <div class="page-search">
     <bo-form v-bind="searchFormConfig" v-model="formData">
       <template #header>
-        <div class="header">高级检索</div>
+        <div class="header">{{ $t('search.title') }}</div>
       </template>
       <template #footer>
         <div class="handle-btns">
-          <el-button icon="Refresh" @click="handleResetClick">重置</el-button>
-          <el-button type="primary" icon="Search" @click="handleQueryClick"
-            >搜索</el-button
-          >
+          <el-button icon="Refresh" @click="handleResetClick">{{
+            $t('search.reset')
+          }}</el-button>
+          <el-button type="primary" icon="Search" @click="handleQueryClick">{{
+            $t('search.search')
+          }}</el-button>
         </div>
       </template>
     </bo-form>

@@ -22,15 +22,20 @@ export default {
     btnTitle: '登录'
   },
   dialog: {
-    deleteTitle: '确定要删除用户'
+    deleteTitle: '确定要删除用户',
+    cancelTitle: '已取消删除'
   },
   search: {
+    title: '高级检索',
     reset: '重置',
     search: '搜索'
   },
   table: {
+    idx: '序号',
+    id: 'id',
     adduser: '添加用户',
-    username: '姓名',
+    username: '用户名',
+    password: '密码',
     email: '邮箱',
     mobile: '手机',
     role_name: '角色',
@@ -38,8 +43,43 @@ export default {
     create_time: '创建时间',
     action: '操作'
   },
+  modalTitle: {
+    '/': '首页',
+    main: '首页',
+    overview: '核心技术',
+    dashboard: '商品统计',
+    user: '用户',
+    department: '部门列表',
+    menu: '菜单列表',
+    role: '角色列表',
+    category: '商品类别',
+    goods: '商品信息',
+    chat: '你的故事',
+    list: '故事列表',
+    default: '提示'
+  },
+  tableTitle: {
+    '/': '首页',
+    main: '首页',
+    overview: '核心技术',
+    dashboard: '商品统计',
+    user: '用户列表',
+    department: '部门列表',
+    menu: '菜单列表',
+    role: '角色列表',
+    category: '商品类别',
+    goods: '商品信息',
+    chat: '你的故事',
+    list: '故事列表'
+  },
   message: {
-    updeteSuccess: '更新成功'
+    updeteSuccess: '更新成功',
+    id: '请输入id',
+    username: '请输入用户名',
+    password: '请输入密码',
+    email: '请输入邮箱',
+    mobile: '请输入手机',
+    role_name: '请输入角色'
   },
   driver: {
     doneBtnText: '完成',
@@ -56,7 +96,12 @@ export default {
     langContent: '设置语言，目前支持中英~'
   },
   btns: {
-    logout: '退出登录'
+    logout: '退出登录',
+    new: '新建',
+    edit: '编辑',
+    delete: '删除',
+    confirm: '确定',
+    cancel: '取消'
   },
   roles: {
     role: '角色',

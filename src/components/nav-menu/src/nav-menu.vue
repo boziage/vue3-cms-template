@@ -102,8 +102,8 @@ const handleMenuItemClick = (item: any) => {
 
   .logo {
     display: flex;
-    height: 28px;
-    padding: 12px 6px;
+    height: 24px;
+    padding: 12px 0px 12px 10px;
     box-sizing: content-box;
     justify-content: flex-start;
     align-items: center;
