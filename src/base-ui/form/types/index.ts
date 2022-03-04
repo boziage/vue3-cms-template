@@ -27,4 +27,5 @@ export interface IForm {
   itemLayout?: any
   title?: string
   rules?: any
+  lang?: string
 }

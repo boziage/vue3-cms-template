@@ -23,7 +23,11 @@ export default {
   },
   dialog: {
     deleteTitle: '确定要删除用户',
-    cancelTitle: '已取消删除'
+    cancelTitle: '已取消删除',
+
+    screenTitle: '警告',
+    screenInfo:
+      '当前系统分辨率要求至少1280*720，请修改分辨率，否则将会显示不全！'
   },
   search: {
     title: '高级检索',
@@ -100,8 +104,9 @@ export default {
     new: '新建',
     edit: '编辑',
     delete: '删除',
-    confirm: '确定',
-    cancel: '取消'
+    confirm: '确 定',
+    cancel: '取 消',
+    closeOther: '关闭其他'
   },
   roles: {
     role: '角色',

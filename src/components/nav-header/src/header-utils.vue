@@ -14,7 +14,7 @@
             <div v-else style="min-width: 19px" />
             简体中文</el-dropdown-item
           >
-          <el-dropdown-item command="en" :disabled="lang === 'en'"
+          <el-dropdown-item command="en" divided :disabled="lang === 'en'"
             ><el-icon v-if="lang === 'en'"><check /></el-icon>
             <div v-else style="min-width: 19px" />
             English</el-dropdown-item
@@ -59,5 +59,8 @@ const handleCommand = (val: string) => {
 :deep(.el-dropdown) {
   display: flex;
   align-items: center;
+}
+:deep(.el-dropdown-menu__item) {
+  white-space: nowrap;
 }
 </style>

@@ -5,7 +5,7 @@ import { useStore } from '@/store'
 
 import { diffTokenTime } from '@/utils/auth'
 
-import { useMessage } from '@/utils/use-message'
+import { useMessage } from '@/hooks/use-message'
 const { showMessage } = useMessage()
 
 const boRequest = new BORequest({
@@ -29,10 +29,9 @@ const boRequest = new BORequest({
     },
     responseInterceptor: (res) => {
       const { meta } = res.data
-      showMessage(meta)
-      if (meta.status === 200 || meta.status === 201) {
-        return res.data
-      }
+      if (!meta) return res.data
+      if (boRequest.showMessage) showMessage(meta)
+      if (meta.status === 200 || meta.status === 201) return res.data
     },
     responseInterceptorCatch: (err) => {
       return err

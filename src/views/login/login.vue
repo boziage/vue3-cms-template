@@ -81,7 +81,10 @@ $black: #000;
 $cursor: #fff;
 
 .login-container {
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   min-height: 100vh;
   background-color: #e493d0;
   background-image: radial-gradient(
@@ -162,7 +165,6 @@ $cursor: #fff;
     z-index: 10;
     width: 520px;
     max-width: 100%;
-    padding: 160px 35px 0;
     margin: 0 auto;
     overflow: hidden;
 
@@ -173,7 +175,7 @@ $cursor: #fff;
         -webkit-appearance: none;
         border-radius: 5px;
         padding: 12px 38px;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255);
         background-color: rgba(255, 255, 255, 0.3);
         height: 48px;
         // --el-input-focus-border: red;
@@ -216,7 +218,7 @@ $cursor: #fff;
     .title {
       font-size: 26px;
       color: transparent;
-      text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.6),
+      text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.8),
         0px 4px 4px rgba(0, 0, 0, 0.05);
       // letter-spacing: 0.2rem;
       margin: 0px auto 40px auto;

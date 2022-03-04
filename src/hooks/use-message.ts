@@ -32,11 +32,11 @@ export function useMessage(
   const showMessage = (res: any) => {
     if (res.status === 400) {
       if (res.msg) {
-        ElMessage.error(res.msg)
+        ElMessage.error(pageTitle ?? res.msg)
         throw Error(res.msg)
       }
     } else {
-      ElMessage.success(res.msg)
+      ElMessage.success(pageTitle ?? res.msg)
     }
   }
 

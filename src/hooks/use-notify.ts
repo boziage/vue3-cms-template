@@ -1,19 +1,21 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ElNotification } from 'element-plus'
 
+import i18n from '@/i18n'
+const t = i18n.global.t
+
 import throttle from '@/utils/throttle.js'
 
-export const showNotify = () => {
+export const showNotify = (type: any = 'info') => {
   const showInfo = ref(false)
   const show = () => {
     if (showInfo.value) return
     showInfo.value = true
     ElNotification({
-      title: '警告',
-      type: 'info',
-      message:
-        '当前系统分辨率要求至少1280*720，请修改分辨率，否则将会显示不全！',
-      duration: 0
+      title: t('dialog.screenTitle'),
+      message: t('dialog.screenInfo'),
+      duration: 0,
+      type
     })
   }
   const close = () => {

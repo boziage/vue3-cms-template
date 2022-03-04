@@ -14,14 +14,20 @@
       append-to-body
       destroy-on-close
     >
-      <bo-form v-bind="modalConfig" v-model="formData"></bo-form>
+      <bo-form
+        v-bind="modalConfig"
+        v-model="formData"
+        ref="boFormRef"
+      ></bo-form>
       <slot></slot>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="handleConfirmClick"
-            >确 定</el-button
-          >
+          <el-button @click="dialogVisible = false">{{
+            $t('btns.cancel')
+          }}</el-button>
+          <el-button type="primary" @click="handleConfirmClick">{{
+            $t('btns.confirm')
+          }}</el-button>
         </span>
       </template>
     </el-dialog>
@@ -61,6 +67,8 @@ export default defineComponent({
     const dialogType = ref('')
     const formData = ref<any>({})
 
+    const boFormRef = ref()
+
     watch(
       () => props.defaultInfo,
       (newValue) => {
@@ -73,27 +81,32 @@ export default defineComponent({
     // 点击确定
     const store = useStore()
     const handleConfirmClick = () => {
-      dialogVisible.value = false
-      if (Object.keys(props.defaultInfo).length) {
-        // 编辑
-        store.dispatch('system/editPagaDataAction', {
-          pageName: props.pageName,
-          editData: { ...formData.value, ...props.otherInfo },
-          id: props.defaultInfo.id
-        })
-      } else {
-        // 新建
-        store.dispatch('system/createPagaDataAction', {
-          pageName: props.pageName,
-          newData: { ...formData.value, ...props.otherInfo }
-        })
-      }
+      boFormRef.value.formRef.validate((valid: any) => {
+        if (valid) {
+          if (Object.keys(props.defaultInfo).length) {
+            // 编辑
+            store.dispatch('system/editPagaDataAction', {
+              pageName: props.pageName,
+              editData: { ...formData.value, ...props.otherInfo },
+              id: props.defaultInfo.id
+            })
+          } else {
+            // 新建
+            store.dispatch('system/createPagaDataAction', {
+              pageName: props.pageName,
+              newData: { ...formData.value, ...props.otherInfo }
+            })
+          }
+          dialogVisible.value = false
+        }
+      })
     }
 
     return {
       dialogVisible,
       dialogType,
       formData,
+      boFormRef,
       handleConfirmClick
     }
   }

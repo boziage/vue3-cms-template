@@ -23,7 +23,10 @@ export default {
   },
   dialog: {
     deleteTitle: 'Are you sure you want to delete the user ',
-    cancelTitle: 'Cancel delete'
+    cancelTitle: 'Cancel delete',
+
+    screenTitle: 'Info',
+    screenInfo: 'The screen resolution shall be at least 1280*720！'
   },
   search: {
     title: 'Search Form',
@@ -102,7 +105,8 @@ export default {
     edit: 'Edit',
     delete: 'Delete',
     confirm: 'Confirm',
-    cancel: 'Cancel'
+    cancel: 'Cancel',
+    closeOther: 'Close other'
   },
   roles: {
     role: 'Role',

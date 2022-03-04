@@ -9,4 +9,5 @@ export interface BoRequestInterceptors<T = AxiosResponse> {
 export interface BoRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
   interceptors?: BoRequestInterceptors<T>
   showLoading?: boolean
+  showMessage?: boolean
 }

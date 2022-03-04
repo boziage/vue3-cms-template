@@ -100,6 +100,7 @@ const handleFoldChange = (isFold: boolean) => {
 
 .el-header {
   height: 48px !important;
+  padding: 0 12px;
 }
 
 .el-footer {

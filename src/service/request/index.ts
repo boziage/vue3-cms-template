@@ -6,17 +6,20 @@ import { ElLoading } from 'element-plus'
 import { LoadingInstance } from 'element-plus/lib/components/loading/src/loading'
 
 const DEFAULT_LOADING = false
+const DEFAULT_MESSAGE = true
 
 class BORequest {
   instance: AxiosInstance
   interceptors?: BoRequestInterceptors
   showLoading?: boolean
+  showMessage?: boolean
   loading?: LoadingInstance
 
   constructor(config: BoRequestConfig) {
     this.instance = axios.create(config)
     this.interceptors = config.interceptors
     this.showLoading = config.showLoading ?? DEFAULT_LOADING
+    this.showMessage = config.showMessage ?? DEFAULT_MESSAGE
 
     this.instance.interceptors.request.use(
       this.interceptors?.requestInterceptor,
@@ -72,9 +75,10 @@ class BORequest {
         config = config.interceptors.requestInterceptor(config)
       }
 
-      if (config.showLoading === false) {
+      if (config.showLoading !== undefined)
         this.showLoading = config.showLoading
-      }
+      if (config.showMessage !== undefined)
+        this.showMessage = config.showMessage
 
       this.instance
         .request<any, T>(config)

@@ -21,9 +21,9 @@
         <el-icon><arrow-down /></el-icon>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="handleCloseOther"
-              >关闭其他标签</el-dropdown-item
-            >
+            <el-dropdown-item @click="handleCloseOther">{{
+              $t('btns.closeOther')
+            }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

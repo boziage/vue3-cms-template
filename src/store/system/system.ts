@@ -14,7 +14,9 @@ const systemModule: Module<ISystemState, IRootState> = {
   state() {
     return {
       usersList: [],
-      usersCount: 0
+      usersCount: 0,
+      pagenum: 1,
+      pagesize: 10
     }
   },
   mutations: {
@@ -23,6 +25,12 @@ const systemModule: Module<ISystemState, IRootState> = {
     },
     changeUsersCount(state, count: number) {
       state.usersCount = count
+    },
+    changePageNum(state, num: number) {
+      state.pagenum = num
+    },
+    changePageSize(state, size: number) {
+      state.pagesize = size
     }
   },
   getters: {
@@ -53,6 +61,8 @@ const systemModule: Module<ISystemState, IRootState> = {
       const changePageName =
         pageUrl.slice(0, 1).toUpperCase() + pageUrl.slice(1)
 
+      commit(`changePageNum`, payload.queryInfo.pagenum)
+      commit(`changePageSize`, payload.queryInfo.pagesize)
       commit(`change${changePageName}List`, pageResult.data[pageUrl])
       commit(`change${changePageName}Count`, pageResult.data.total)
     },
@@ -62,8 +72,7 @@ const systemModule: Module<ISystemState, IRootState> = {
       const pageUrl = `/${pageName}/${row.id}/state/${!row.mg_state}`
 
       // 调用网络请求
-      const res = await changeState(pageUrl)
-      console.log(res)
+      await changeState(pageUrl)
 
       // 重新请求数据
       dispatch('getPageListAction', {
@@ -79,15 +88,15 @@ const systemModule: Module<ISystemState, IRootState> = {
       // 新建数据的请求
       const { pageName, newData } = payload
       const pageUrl = `/${pageName}`
-      const res = await createPageData(pageUrl, newData)
+      await createPageData(pageUrl, newData)
       // showMessage(res)
 
       // 请求最新数据
       dispatch('getPageListAction', {
         pageName,
         queryInfo: {
-          pagenum: 1,
-          pagesize: 10
+          pagenum: this.state.system?.pagenum,
+          pagesize: this.state.system?.pagesize
         }
       })
     },
@@ -96,14 +105,14 @@ const systemModule: Module<ISystemState, IRootState> = {
       // 编辑数据的请求
       const { pageName, editData, id } = payload
       const pageUrl = `/${pageName}/${id}`
-      const res = await editPageData(pageUrl, editData)
+      await editPageData(pageUrl, editData)
 
       // 请求最新数据
       dispatch('getPageListAction', {
         pageName,
         queryInfo: {
-          pagenum: 1,
-          pagesize: 10
+          pagenum: this.state.system?.pagenum,
+          pagesize: this.state.system?.pagesize
         }
       })
     },
@@ -114,14 +123,14 @@ const systemModule: Module<ISystemState, IRootState> = {
       const { pageName, id } = payload
       const pageUrl = `/${pageName}/${id}`
       // 调用网络请求
-      const res = await deletePageData(pageUrl)
+      await deletePageData(pageUrl)
 
       // 重新请求数据
       dispatch('getPageListAction', {
         pageName,
         queryInfo: {
-          pagenum: 1,
-          pagesize: 10
+          pagenum: this.state.system?.pagenum,
+          pagesize: this.state.system?.pagesize
         }
       })
     }

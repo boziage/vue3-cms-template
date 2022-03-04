@@ -3,7 +3,7 @@
     <div class="header">
       <slot name="header"></slot>
     </div>
-    <el-form :label-width="labelWidth">
+    <el-form :label-width="labelWidth" :model="modelValue" ref="formRef">
       <el-row>
         <template v-for="item in formItems" :key="item.label">
           <el-col v-bind="colLayout">
@@ -12,6 +12,7 @@
               :label="$t(`table.${item.label}`)"
               :rules="item.rules"
               :style="itemLayout"
+              :prop="item.field"
             >
               <template
                 v-if="item.type === 'input' || item.type === 'password'"
@@ -93,7 +94,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, PropType, ref } from 'vue'
 import { IFormItem } from '../index'
 
 export default defineComponent({
@@ -131,11 +132,14 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
+    const formRef = ref()
+
     const handleValueChange = (value: any, field: string) => {
       emit('update:modelValue', { ...props.modelValue, [field]: value })
     }
 
     return {
+      formRef,
       handleValueChange
     }
   }

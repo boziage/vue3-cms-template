@@ -10,6 +10,7 @@ export type IStoreType = IRootState & IRootWithModule
 export interface IRootState {
   lang: string
   login?: ILoginState
+  system?: ISystemState
 }
 
 export interface ILoginState {
@@ -22,6 +23,8 @@ export interface ILoginState {
 export interface ISystemState {
   usersList: any[]
   usersCount: number
+  pagenum: number
+  pagesize: number
 }
 
 export interface IDashboardState {

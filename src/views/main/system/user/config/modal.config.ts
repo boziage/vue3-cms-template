@@ -13,7 +13,7 @@ export const modalConfig: IForm = {
       rules: [
         {
           required: true,
-          message: t('message.username'),
+          message: () => t('message.username'),
           trigger: 'blur'
         }
       ]
@@ -27,7 +27,7 @@ export const modalConfig: IForm = {
       rules: [
         {
           required: true,
-          message: t('message.password'),
+          message: () => t('message.password'),
           trigger: 'blur'
         }
       ]
@@ -40,7 +40,7 @@ export const modalConfig: IForm = {
       rules: [
         {
           required: true,
-          message: t('message.email'),
+          message: () => t('message.email'),
           trigger: 'blur'
         }
       ]
@@ -53,7 +53,7 @@ export const modalConfig: IForm = {
       rules: [
         {
           required: true,
-          message: t('message.mobile'),
+          message: () => t('message.mobile'),
           trigger: 'blur'
         }
       ]

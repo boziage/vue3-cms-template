@@ -79,7 +79,7 @@ import { defineComponent, computed, ref, watch } from 'vue'
 import { useStore } from '@/store'
 import { usePermission } from '@/hooks/use-permission'
 
-import { useMessage } from '@/utils/use-message'
+import { useMessage } from '@/hooks/use-message'
 
 import BoTable from '@/base-ui/table'
 

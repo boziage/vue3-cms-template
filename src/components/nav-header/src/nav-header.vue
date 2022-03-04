@@ -57,18 +57,18 @@ watch(
 
   .content {
     flex: 1;
-    padding: 0 20px;
+    padding-left: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .utils {
       flex: 1;
-      margin-right: 10px;
+      // margin-right: 10px;
     }
 
     &-right {
-      width: 200px;
+      width: 180px;
       display: flex;
       justify-content: space-between;
       align-items: center;
