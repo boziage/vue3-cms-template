@@ -1,4 +1,4 @@
-# vue3-cms-template
+# 基于 vue3 + ts 的一个 cms 模板 vue3-cms-template,正努力完善...
 
 ## Project setup
 

@@ -13,6 +13,8 @@ import 'normalize.css'
 import '@/assets/css/index.scss'
 import 'element-plus/dist/index.css'
 
+// import 'tailwindcss/tailwind.css'
+
 import SvgIcon from '@/assets/icons/index.js'
 import i18n from '@/i18n'
 
